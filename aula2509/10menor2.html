@@ -11,7 +11,7 @@
         <label> Digite um numero: </label><br>
         <input type ="number" id="recebedora"><br>
         <button type ="button" id="armazenar"> Armazenar </button>
-        <button type ="button" id="Encontrarmenor"> Encontrar menor numero </button>
+        <button type ="button" onclick="Encontrarmenor()"> Encontrar menor numero </button>
     </form>
 
     <p id="resultado" ></p>
@@ -27,15 +27,10 @@
         }
     }
 
-
-        document.getElementById('Encontrarmenor').onclick = function(){
-        if (numeros.length>0 ){
-            let menornumero = numeros[0];
-            for (let i=1; i< numeros.length; i++){
-                if(numeros[i] < menornumero){
-                    menornumero = numeros[i];
-                }
-            }
+function Encontrarmenor(){
+    if (numeros.length>0){
+        let menornumero = Math.min(...numeros)
+    
     document.getElementById('resultado').innerText="Os numeros digitados foram:"+ numeros.join(", ") + "\n O menor numero digitado foi:" + menornumero;
         }else{
             document.getElementById('resultado').innerText="Nenhum numero armazenado"
